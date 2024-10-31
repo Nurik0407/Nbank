@@ -2,10 +2,7 @@ package com.example.nbank.entities;
 
 import com.example.nbank.enums.AccountType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,6 +13,7 @@ import java.time.LocalDate;
 @Table(name = "accounts")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

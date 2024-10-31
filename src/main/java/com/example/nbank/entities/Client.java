@@ -15,6 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Client implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_id_gen")
@@ -29,7 +30,6 @@ public class Client implements UserDetails {
     private String address;
     private String phoneNumber;
     private String email;
-    private String listOfCheck;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
     private List<Account> accounts;
     private Boolean isBlocked;
