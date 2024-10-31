@@ -1,5 +1,8 @@
 package com.example.nbank.api;
 
+import com.example.nbank.dto.SimpleResponse;
+import com.example.nbank.dto.client.ClientRequest;
+import com.example.nbank.services.ClientService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,9 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Authentication API", description = "API for user authentication (sign in/sign up)")
 @CrossOrigin(origins = "*")
 public class AuthAPI {
+    private final ClientService clientService;
 
     @GetMapping
-    public String auth() {
-        return "Hello world";
+    public SimpleResponse auth(ClientRequest clientRequest) {
+        return clientService.save(clientRequest);
     }
 }

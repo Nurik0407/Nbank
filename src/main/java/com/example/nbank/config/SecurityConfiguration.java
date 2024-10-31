@@ -49,7 +49,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(AUTH_WHITELIST).permitAll()
                         .requestMatchers(LOGIN).permitAll()
-                        .anyRequest().authenticated() // Для всех остальных запросов нужна аутентификация
+                        .anyRequest().permitAll() // .authenticated Для всех остальных запросов нужна аутентификация
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Без состояния, так как JWT
